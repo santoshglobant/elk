@@ -25,6 +25,7 @@ services:
     image: docker.elastic.co/kibana/kibana:7.8.0
     container_name: kibana
     environment:
+      SERVER_NAME: kibana
       ELASTICSEARCH_URL: "http://elasticsearch:9200"
     ports:
       - 5601:5601
@@ -34,3 +35,8 @@ services:
 volumes:
   esdata1:
     driver: local
+    
+networks:
+ elastic:
+    driver: bridge
+    
